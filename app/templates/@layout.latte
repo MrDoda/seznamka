@@ -25,7 +25,17 @@
 	<script> document.documentElement.className+=' js' </script>
 
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-
+        <div id='navig'>
+        <ul class="navig" >  
+            <li {ifCurrent Homepage:}class='active'{/ifCurrent}><a n:href="Homepage:">Články</a></li>
+            {if $user->loggedIn}
+            <li {ifCurrent Sign:in}class='active'{/ifCurrent}><a n:href="Sign:out">Odhlásit</a></li>
+            {else}
+            <li {ifCurrent Sign:in}class='active'{else} class='last' {/ifCurrent} ><a n:href="Sign:in">Přihlásit</a></li>
+            {/if}
+        </ul>
+        </div>
+        
 	{include #content}
 
 	{block scripts}
