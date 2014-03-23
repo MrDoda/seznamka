@@ -1,30 +1,30 @@
-<?php //netteCache[01]000340a:2:{s:4:"time";s:21:"0.07383700 1395594778";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:59:"C:\xampp2\htdocs\seznamkaNette2\app\templates\@layout.latte";i:2;i:1395594504;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:22:"released on 2014-01-01";}}}?><?php
+<?php //netteCache[01]000340a:2:{s:4:"time";s:21:"0.63301700 1395595917";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:9:"checkFile";}i:1;s:59:"C:\xampp2\htdocs\seznamkaNette2\app\templates\@layout.latte";i:2;i:1395595913;}i:1;a:3:{i:0;a:2:{i:0;s:6:"NCache";i:1;s:10:"checkConst";}i:1;s:20:"NFramework::REVISION";i:2;s:22:"released on 2014-01-01";}}}?><?php
 
 // source file: C:\xampp2\htdocs\seznamkaNette2\app\templates\@layout.latte
 
 ?><?php
 // prolog NCoreMacros
-list($_l, $_g) = NCoreMacros::initRuntime($template, 'k2j09g5gnx')
+list($_l, $_g) = NCoreMacros::initRuntime($template, 't99poulcos')
 ;
 // prolog NUIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lba5f67fe95e_title')) { function _lba5f67fe95e_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['title'][] = '_lbf6f110ea99_title')) { function _lbf6f110ea99_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>Nette Application Skeleton<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lb0b877615ca_head')) { function _lb0b877615ca_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['head'][] = '_lbbdaccfbc6a_head')) { function _lbbdaccfbc6a_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block scripts
 //
-if (!function_exists($_l->blocks['scripts'][] = '_lb6e33c3bc13_scripts')) { function _lb6e33c3bc13_scripts($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['scripts'][] = '_lb5beac12742_scripts')) { function _lb5beac12742_scripts($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/jquery.js"></script>
 	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/netteForms.js"></script>
 	<script src="<?php echo htmlSpecialChars($basePath) ?>/js/main.js"></script>
@@ -85,6 +85,9 @@ class='active'<?php } ?>><a href="<?php echo htmlSpecialChars($_control->link("H
 class='active'<?php } ?>><a href="<?php echo htmlSpecialChars($_control->link("Sign:out")) ?>
 ">Odhlásit</a></li>
 <?php } else { ?>
+            <li <?php try { $_presenter->link("Register:register"); } catch (NInvalidLinkException $e) {}; if ($_presenter->getLastCreatedRequestFlag("current")) { ?>
+class='active'<?php } ?>><a href="<?php echo htmlSpecialChars($_control->link("Register:register")) ?>
+">Registrace</a></li>
             <li <?php try { $_presenter->link("Sign:in"); } catch (NInvalidLinkException $e) {}; if ($_presenter->getLastCreatedRequestFlag("current")) { ?>
 class='active'<?php } else { ?> class='last' <?php } ?> ><a href="<?php echo htmlSpecialChars($_control->link("Sign:in")) ?>
 ">Přihlásit</a></li>

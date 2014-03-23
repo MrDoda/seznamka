@@ -31,6 +31,7 @@
             {if $user->loggedIn}
             <li {ifCurrent Sign:in}class='active'{/ifCurrent}><a n:href="Sign:out">Odhlásit</a></li>
             {else}
+            <li {ifCurrent Register:register}class='active'{/ifCurrent}><a n:href="Register:register">Registrace</a></li>
             <li {ifCurrent Sign:in}class='active'{else} class='last' {/ifCurrent} ><a n:href="Sign:in">Přihlásit</a></li>
             {/if}
         </ul>
