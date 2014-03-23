@@ -1,7 +1,7 @@
 <?php
 
-use Nette\Application\UI,
-    Nette\Application\UI\Form as Form;
+
+use Nette\Application\UI\Form;
 
 class RegisterPresenter extends BasePresenter {
 
@@ -10,7 +10,7 @@ class RegisterPresenter extends BasePresenter {
 
     protected function startup() {
         parent::startup();
-        $this->users = $this->context->users;
+        //$this->users = $this->context->users;
     }
 
     public function renderRegister() {
