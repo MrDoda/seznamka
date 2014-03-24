@@ -22,26 +22,26 @@ class RegisterPresenter extends BasePresenter {
      * @return \Nette\Application\UI\Form
      */
     protected function createComponentRegisterForm() {
-        $form = new Form;
+        $form = new NAppForm;
         $form->addText('nickname', 'Uživatelské jméno');
         $form->addText('email', 'E-mail: *', 35)
                 ->setEmptyValue('@')
-                ->addRule(Form::FILLED, 'Vyplňte Váš email')
-                ->addCondition(Form::FILLED)
-                ->addRule(Form::EMAIL, 'Neplatná emailová adresa');
+                ->addRule(NAppForm::FILLED, 'Vyplňte Váš email')
+                ->addCondition(NAppForm::FILLED)
+                ->addRule(NAppForm::EMAIL, 'Neplatná emailová adresa');
         $form->addPassword('password', 'Heslo: *', 20)
                 ->setOption('description', 'Alespoň 6 znaků')
-                ->addRule(Form::FILLED, 'Vyplňte Vaše heslo')
-                ->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaků.', 6);
+                ->addRule(NAppForm::FILLED, 'Vyplňte Vaše heslo')
+                ->addRule(NAppForm::MIN_LENGTH, 'Heslo musí mít alespoň %d znaků.', 6);
         $form->addPassword('password2', 'Heslo znovu: *', 20)
-                ->addConditionOn($form['password'], Form::VALID)
-                ->addRule(Form::FILLED, 'Heslo znovu')
-                ->addRule(Form::EQUAL, 'Hesla se neshodují.', $form['password']);
+                ->addConditionOn($form['password'], NAppForm::VALID)
+                ->addRule(NAppForm::FILLED, 'Heslo znovu')
+                ->addRule(NAppForm::EQUAL, 'Hesla se neshodují.', $form['password']);
         $form->addTextArea('info', 'Něco o vás:');
         $form->addText('age', 'Věk:')
                 ->setType('number')
-                ->addRule(Form::INTEGER, 'Věk musí být číslo')
-                ->addRule(Form::RANGE, 'Věk musí být od 18 do 120', array(18, 120));
+                ->addRule(NAppForm::INTEGER, 'Věk musí být číslo')
+                ->addRule(NAppForm::RANGE, 'Věk musí být od 18 do 120', array(18, 120));
         $sex = array(
             'm' => 'muž',
             'f' => 'žena',
@@ -94,7 +94,7 @@ class RegisterPresenter extends BasePresenter {
                 ->setPrompt('Zvolte status');
         
         
-        $weight = array(                     //Tady budou Města z databáze
+        $weight = array(                     
               '40-50',
               '50-60',
               '60-70',
@@ -106,11 +106,11 @@ class RegisterPresenter extends BasePresenter {
               'více než 140',
         );
 
-        $form->addSelect('town', 'Vašeí váha:', $weight)
+        $form->addSelect('weight', 'Vašeí váha:', $weight)
                 ->setPrompt('Zvolte váhu');
         
         
-        $height = array(                     //Tady budou Města z databáze
+        $height = array(                     
               '140-150',
               '150-160',
               '160-170',
@@ -123,7 +123,7 @@ class RegisterPresenter extends BasePresenter {
         $form->addSelect('height', 'Výška:', $height)
                 ->setPrompt('Zvolte výšku');
         
-        $hair = array(                     //Tady budou Města z databáze
+        $hair = array(                     
               'černé',
               'červené',
               'hnědé',
@@ -135,7 +135,7 @@ class RegisterPresenter extends BasePresenter {
         $form->addSelect('hair', 'Barva vlasů:', $hair)
                 ->setPrompt('Zvolte barvu vlasů');
         
-        $eyes = array(                     //Tady budou Města z databáze
+        $eyes = array(                     
               'hnědé',
               'modré',
               'zelené',
@@ -162,7 +162,7 @@ class RegisterPresenter extends BasePresenter {
         $form->addCheckbox('fisting', 'Fisting');
         
         $form->addCheckbox('agree', 'Souhlasím s podmínkami')
-                ->addRule(Form::EQUAL, 'Je potřeba souhlasit s podmínkami', TRUE);
+                ->addRule(NAppForm::EQUAL, 'Je potřeba souhlasit s podmínkami', TRUE);
         $form->addSubmit('send', 'Registrovat');
         $form->onSuccess[] = callback($this, 'registerFormSubmitted');
         return $form;
